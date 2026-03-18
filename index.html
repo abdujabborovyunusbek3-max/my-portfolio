@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunusbek_design - Graphic Design Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ECF0F1;
+            --text: #2C3E50;
+            --accent: #E74C3C;
+            --muted: #34495E;
+            --light-gray: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.12);
+            --radius-card: 16px;
+            --radius-button: 50px;
+            --section-padding: 80px;
+            --container-max-width: 1200px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            margin: 0;
+            background-color: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-top: 0;
+        }
+
+        h1 { font-size: clamp(48px, 8vw, 96px); font-weight: 800; }
+        h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 700; }
+        h3 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; }
+        h4 { font-size: clamp(22px, 3vw, 28px); font-weight: 600; }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--muted);
+        }
+
+        .btn-primary, .btn-ghost, .btn-dark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius-button);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 12px 30px;
+        }
+
+        .btn-ghost:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: var(--text);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            background: var(--muted);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 28px;
+            box-shadow: 0 2px 12px var(--shadow-light);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px var(--shadow-medium);
+        }
+
+        /* Header */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-bg-text {
+            font-family: 'Playfair Display', serif;
+            position: absolute;
+            font-size: clamp(100px, 20vw, 280px);
+            color: rgba(44, 62, 80, 0.04); /* Muted version of --text */
+            font-weight: 700;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            line-height: 0.8;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .portfolio-item {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px var(--shadow-medium);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            background-color: var(--light-gray);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portfolio-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .portfolio-info p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: var(--radius-card);
+            box-shadow: 0 8px 24px var(--shadow-medium);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: var(--muted);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 32px 28px;
+            box-shadow: 0 2px 12px var(--shadow-light);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px var(--shadow-medium);
+        }
+
+        .service-card .icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--light-gray);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-carousel-wrapper {
+            position: relative;
+            max-width: 1000px; /* Adjust based on desired visible width */
+            margin: 0 auto;
+            padding: 0 60px; /* Space for arrows */
+        }
+
+        .testimonial-carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            overflow: hidden;
+            position: relative;
+            align-items: center;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px; /* Ensure consistent height */
+        }
+
+        .testimonial-card.center-card {
+            transform: scale(1.04);
+            border: 2px solid var(--accent);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            z-index: 2;
+        }
+
+        .testimonial-card:not(.center-card) {
+            opacity: 0.75;
+            transform: scale(0.97);
+        }
+
+        .testimonial-card .stars {
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .quote-mark {
+            font-family: Georgia, serif;
+            font-size: 56px;
+            color: var(--accent);
+            line-height: 0.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-card .t-quote {
+            font-size: 16px;
+            line-height: 1.7;
+            font-style: italic;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .testimonial-card .avatar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .t-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--light-gray);
+        }
+
+        .testimonial-card .t-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: #111;
+        }
+
+        .testimonial-card .t-role {
+            font-size: 13px;
+            color: var(--accent);
+        }
+
+        .t-prev, .t-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .t-prev:hover, .t-next:hover {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .t-prev { left: 0; }
+        .t-next { right: 0; }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--muted);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .contact-form-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 40px;
+            box-shadow: 0 8px 24px var(--shadow-medium);
+            border: 1px solid #f0f0f0;
+        }
+
+        .contact-form-card h3 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            background-color: var(--light-gray);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form-card .btn-primary {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+        }
+
+        /* Newsletter Band */
+        .newsletter-band {
+            background-color: var(--text);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter-band .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .newsletter-band h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: clamp(28px, 4vw, 40px);
+        }
+
+        .newsletter-band p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-button);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+        }
+
+        .newsletter-form .btn-primary {
+            flex-shrink: 0;
+            width: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 60px 0 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .footer-social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            margin-left: 15px;
+        }
+
+        .footer-bottom .legal-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 24px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                align-items: center;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: clamp(40px, 10vw, 72px);
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-bg-text {
+                font-size: clamp(80px, 25vw, 180px);
+                transform: translate(-50%, -50%) rotate(-5deg);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1; /* Image above text on mobile */
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-card {
+                padding: 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input,
+            .newsletter-form .btn-primary {
+                width: 90%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col ul {
+                text-align: center;
+            }
+
+            .footer-social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom .legal-links {
+                margin-top: 10px;
+            }
+
+            .footer-bottom .legal-links a {
+                margin: 0 8px;
+            }
+
+            .testimonial-carousel {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+
+            .testimonial-carousel-wrapper {
+                padding: 0 24px; /* Adjust padding for arrows */
+            }
+
+            .testimonial-card:not(.center-card) {
+                display: none; /* Hide side cards on mobile */
+            }
+
+            .testimonial-card.center-card {
+                transform: scale(1); /* No scale on mobile */
+                border: 1px solid #f0f0f0;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            }
+
+            .t-prev, .t-next {
+                top: auto;
+                bottom: 0;
+                transform: translateY(50%);
+                position: relative;
+                margin: 0 10px;
+            }
+
+            .testimonial-carousel-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .testimonial-nav-mobile {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: 40px;
+            }
+            .t-prev { left: auto; }
+            .t-next { right: auto; }
+        }
+
+        @media (min-width: 769px) {
+            .about-grid {
+                grid-template-columns: 1fr 1.2fr;
+            }
+            .contact-grid {
+                grid-template-columns: 0.8fr 1.2fr;
+            }
+            .testimonial-nav-mobile {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-primary, .btn-ghost {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+            }
+            .portfolio-item img {
+                height: 200px;
+            }
+            .service-card {
+                padding: 24px 20px;
+            }
+            .service-card .icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.8rem;
+            }
+            .contact-form-card {
+                padding: 25px;
+            }
+            .newsletter-band h2 {
+                font-size: clamp(24px, 6vw, 32px);
+            }
+            .newsletter-form input,
+            .newsletter-form .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg style="display:none">
+        <filter id="glass-distortion">
+            <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="77"/>
+        </filter>
+    </svg>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Yunusbek_design</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn-primary">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <h1>Crafting <span class="accent-text">Visual Stories</span><br>That Resonate.</h1>
+            <p>Yunusbek is a passionate graphic designer specializing in brand identity, digital design, and visual communication.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Let's Create Something Amazing</a>
+                <a href="#portfolio" class="btn-ghost">View My Work</a>
+            </div>
+        </div>
+        <div class="hero-bg-text">Yunusbek</div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Featured <span class="accent-text">Projects</span></h2>
+            <p class="section-subtext" style="max-width: 700px; margin: 15px auto 60px auto; text-align: center; color: var(--muted);">A curated selection of my recent work, showcasing diverse styles and solutions across various design disciplines.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=brand+identity+logo+design&w=400&h=280&o=square" alt="Brand Identity Project">
+                    <div class="portfolio-info">
+                        <h4>Brand Identity & Logo Design</h4>
+                        <p>Crafting unique visual identities for startups and established businesses.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=ui+ux+mobile+app+design&w=400&h=280&o=square" alt="Mobile App UI/UX">
+                    <div class="portfolio-info">
+                        <h4>Mobile App UI/UX</h4>
+                        <p>Intuitive and engaging user interfaces for mobile applications.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=print+magazine+layout+design&w=400&h=280&o=square" alt="Magazine Layout">
+                    <div class="portfolio-info">
+                        <h4>Magazine Layout Design</h4>
+                        <p>Elegant and readable layouts for print publications and digital magazines.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=packaging+design+food+product&w=400&h=280&o=square" alt="Food Packaging Design">
+                    <div class="portfolio-info">
+                        <h4>Food Packaging Design</h4>
+                        <p>Eye-catching packaging that stands out on the shelves.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=illustration+custom+graphics+art&w=400&h=280&o=square" alt="Custom Illustration">
+                    <div class="portfolio-info">
+                        <h4>Custom Illustration</h4>
+                        <p>Unique illustrations and graphics to enhance brand storytelling.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=social+media+campaign+graphics&w=400&h=280&o=square" alt="Social Media Graphics">
+                    <div class="portfolio-info">
+                        <h4>Social Media Campaign</h4>
+                        <p>Engaging visuals for impactful social media marketing campaigns.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=website+redesign+landing+page&w=400&h=280&o=square" alt="Website Redesign">
+                    <div class="portfolio-info">
+                        <h4>Website Redesign</h4>
+                        <p>Modernizing existing websites for improved aesthetics and usability.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=event+poster+design+typography&w=400&h=280&o=square" alt="Event Poster Design">
+                    <div class="portfolio-info">
+                        <h4>Event Poster Design</h4>
+                        <p>Dynamic and informative posters for various events and promotions.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=book+cover+design+fantasy&w=400&h=280&o=square" alt="Book Cover Design">
+                    <div class="portfolio-info">
+                        <h4>Book Cover Design</h4>
+                        <p>Creating captivating covers that tell a story at first glance.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=infographic+data+visualization&w=400&h=280&o=square" alt="Infographic Design">
+                    <div class="portfolio-info">
+                        <h4>Infographic Design</h4>
+                        <p>Transforming complex data into clear and engaging visual stories.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=brochure+design+corporate&w=400&h=280&o=square" alt="Corporate Brochure">
+                    <div class="portfolio-info">
+                        <h4>Corporate Brochure</h4>
+                        <p>Professional brochures for corporate communications and marketing.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://nebulux.one/api/image/?q=digital+advertisement+banner&w=400&h=280&o=square" alt="Digital Ad Banners">
+                    <div class="portfolio-info">
+                        <h4>Digital Ad Banners</h4>
+                        <p>High-impact banners optimized for various digital advertising platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://nebulux.one/api/image/?q=professional+graphic+designer+working+studio&w=600&h=500&o=landscape" alt="Yunusbek the designer">
+            </div>
+            <div class="about-content">
+                <h2>About <span class="accent-text">Yunusbek</span></h2>
+                <p>Yunusbek is a passionate graphic designer specializing in brand identity, digital design, and visual communication. With a focus on creating compelling visual narratives, Yunusbek transforms ideas into impactful designs that resonate with audiences.</p>
+                <p>My journey in design is driven by a desire to solve visual challenges and bring creative visions to life. I believe in a collaborative approach, working closely with clients to understand their unique needs and deliver designs that not only look great but also achieve their strategic goals.</p>
+                <p>From initial concept to final execution, I am committed to delivering high-quality, thoughtful, and effective design solutions that leave a lasting impression.</p>
+                <a href="#contact" class="btn-primary" style="margin-top: 20px;">Let's Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 style="text-align: center;">My <span class="accent-text">Services</span></h2>
+            <p class="section-subtext" style="max-width: 700px; margin: 15px auto 60px auto; text-align: center; color: var(--muted);">Offering a comprehensive range of graphic design services tailored to elevate your brand and communicate your message effectively.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h3>Brand Identity & Logo Design</h3>
+                    <p>Crafting memorable logos and cohesive brand guidelines that define your unique presence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Digital Design & UI/UX</h3>
+                    <p>Designing intuitive websites, engaging apps, and digital experiences that captivate users.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-print"></i></div>
+                    <h3>Print Design & Collateral</h3>
+                    <p>From brochures to business cards, creating stunning print materials for your marketing needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-box"></i></div>
+                    <h3>Packaging Design</h3>
+                    <p>Innovative and attractive packaging solutions that make your products stand out.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-palette"></i></div>
+                    <h3>Illustration & Custom Graphics</h3>
+                    <p>Unique illustrations and custom graphics to add a distinctive touch to your projects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-share-nodes"></i></div>
+                    <h3>Social Media Design</h3>
+                    <p>Engaging visuals and templates optimized for all your social media platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Clients <span class="accent-text">Say</span></h2>
+            <div class="testimonial-carousel-wrapper">
+                <button class="t-prev" aria-label="Previous testimonial"><i class="fas fa-arrow-left"></i></button>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <span class="quote-mark">❝</span>
+                        <p class="t-quote">Yunusbek transformed our brand identity with a logo that perfectly captures our vision. The process was seamless, and the result exceeded our expectations, leading to increased brand recognition.</p>
+                        <hr>
+                        <div class="avatar-row">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Client Avatar" class="t-avatar">
+                            <div>
+                                <div class="t-name">Alisher Saidov</div>
+                                <div class="t-role">Entrepreneur · Tashkent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card center-card">
+                        <div class="stars">★★★★★</div>
+                        <span class="quote-mark">❝</span>
+                        <p class="t-quote">The UI/UX design for our new app was phenomenal. Yunusbek's attention to detail and user-centric approach made our app incredibly intuitive and visually appealing, resulting in higher user engagement.</p>
+                        <hr>
+                        <div class="avatar-row">
+                            <img src="https://i.pravatar.cc/150?img=45" alt="Client Avatar" class="t-avatar">
+                            <div>
+                                <div class="t-name">Dilnoza Karimova</div>
+                                <div class="t-role">Tech Lead · Samarkand</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <span class="quote-mark">❝</span>
+                        <p class="t-quote">Our marketing collateral has never looked better. Yunusbek's print designs are professional, creative, and truly represent our company's values. We've received numerous compliments from clients.</p>
+                        <hr>
+                        <div class="avatar-row">
+                            <img src="https://i.pravatar.cc/150?img=19" alt="Client Avatar" class="t-avatar">
+                            <div>
+                                <div class="t-name">Jasur Khusanov</div>
+                                <div class="t-role">Marketing Manager · Bukhara</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="t-next" aria-label="Next testimonial"><i class="fas fa-arrow-right"></i></button>
+                <div class="testimonial-nav-mobile">
+                    <button class="t-prev" aria-label="Previous testimonial"><i class="fas fa-arrow-left"></i></button>
+                    <button class="t-next" aria-label="Next testimonial"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2>Get In <span class="accent-text">Touch</span></h2>
+                <p>Have a project in mind or just want to say hello? I'd love to hear from you. Fill out the form or reach out directly.</p>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@yunusbek.design</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    <span>+998 90 123 4567</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Tashkent, Uzbekistan</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                    <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-card">
+                <h3>Send Me a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="newsletter-band">
+        <div class="container">
+            <h2>Stay Updated with My Latest Work</h2>
+            <p>Subscribe to my newsletter for portfolio updates, design insights, and exclusive offers.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">Yunusbek_design</a>
+                    <p class="footer-tagline">Crafting compelling visual narratives.</p>
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Brand Identity</a></li>
+                        <li><a href="#services">Digital Design</a></li>
+                        <li><a href="#services">Print Design</a></li>
+                        <li><a href="#services">Packaging</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@yunusbek.design">hello@yunusbek.design</a></li>
+                        <li><a href="tel:+998901234567">+998 90 123 4567</a></li>
+                        <li>Tashkent, Uzbekistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Yunusbek_design. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile nav if open
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.nav-toggle i').classList.remove('fa-xmark');
+                    document.querySelector('.nav-toggle i').classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Sticky nav on scroll
+        window.addEventListener("scroll", () => {
+            const nav = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                nav.style.background = "rgba(236, 240, 241, 0.95)"; /x/
+                nav.style.backdropFilter = "blur(12px)";
+                nav.style.boxShadow = "0 2px 20px rgba(0,0,0,0.08)";
+            } else {
+                nav.style.background = "transparent";
+                nav.style.backdropFilter = "none";
+                nav.style.boxShadow = "none";
+            }
+        });
+
+        // Mobile navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-xmark');
+        });
+
+        // Testimonial Carousel
+        const cards = document.querySelectorAll('.testimonial-card');
+        const testimonials = [
+            { quote: "Yunusbek transformed our brand identity with a logo that perfectly captures our vision. The process was seamless, and the result exceeded our expectations, leading to increased brand recognition.", name: "Alisher Saidov", role: "Entrepreneur", city: "Tashkent", img: "https://i.pravatar.cc/150?img=32" },
+            { quote: "The UI/UX design for our new app was phenomenal. Yunusbek's attention to detail and user-centric approach made our app incredibly intuitive and visually appealing, resulting in higher user engagement.", name: "Dilnoza Karimova", role: "Tech Lead", city: "Samarkand", img: "https://i.pravatar.cc/150?img=45" },
+            { quote: "Our marketing collateral has never looked better. Yunusbek's print designs are professional, creative, and truly represent our company's values. We've received numerous compliments from clients.", name: "Jasur Khusanov", role: "Marketing Manager", city: "Bukhara", img: "https://i.pravatar.cc/150?img=19" },
+            { quote: "Working with Yunusbek on our packaging design was a fantastic experience. The final product is not only beautiful but also highly functional, significantly boosting our product's market appeal.", name: "Madina Rustamova", role: "Product Owner", city: "Namangan", img: "https://i.pravatar.cc/150?img=22" },
+            { quote: "Yunusbek's custom illustrations added a unique and vibrant touch to our website. They perfectly conveyed our message and helped us connect with our audience on a deeper, more visual level.", name: "Farrukh Olimov", role: "Creative Director", city: "Andijan", img: "https://i.pravatar.cc/150?img=50" }
+        ];
+        let current = 1; // Start with the middle card as active
+
+        function showTestimonials(idx) {
+            const indices = [(idx - 1 + testimonials.length) % testimonials.length, idx, (idx + 1) % testimonials.length];
+            
+            // Handle mobile view (single card)
+            if (window.innerWidth <= 768) {
+                cards.forEach((card, i) => {
+                    if (i === 0) { // Only update the first card for mobile
+                        const t = testimonials[idx];
+                        card.querySelector('.t-quote').textContent = t.quote;
+                        card.querySelector('.t-name').textContent = t.name;
+                        card.querySelector('.t-role').textContent = t.role + ' · ' + t.city;
+                        card.querySelector('.t-avatar').src = t.img;
+                        card.classList.add('center-card'); // Ensure it's styled as center
+                        card.style.display = 'flex'; // Make sure it's visible
+                    } else {
+                        card.style.display = 'none'; // Hide other cards
+                    }
+                });
+            } else { // Desktop view (three cards)
+                cards.forEach((card, i) => {
+                    const t = testimonials[indices[i]];
+                    card.querySelector('.t-quote').textContent = t.quote;
+                    card.querySelector('.t-name').textContent = t.name;
+                    card.querySelector('.t-role').textContent = t.role + ' · ' + t.city;
+                    card.querySelector('.t-avatar').src = t.img;
+                    card.classList.toggle('center-card', i === 1);
+                    card.style.display = 'flex'; // Make sure all three are visible
+                });
+            }
+            current = idx;
+        }
+
+        document.querySelector('.t-prev').addEventListener('click', () => showTestimonials((current - 1 + testimonials.length) % testimonials.length));
+        document.querySelector('.t-next').addEventListener('click', () => showTestimonials((current + 1) % testimonials.length));
+        
+        // Autoplay
+        let autoplay = setInterval(() => showTestimonials((current + 1) % testimonials.length), 5000);
+        document.querySelector('.testimonials-section').addEventListener('mouseenter', () => clearInterval(autoplay));
+        document.querySelector('.testimonials-section').addEventListener('mouseleave', () => { autoplay = setInterval(() => showTestimonials((current + 1) % testimonials.length), 5000); });
+
+        // Initial load and resize handling
+        window.addEventListener('resize', () => showTestimonials(current));
+        showTestimonials(current);
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.innerHTML = '<p style="text-align:center;padding:2rem;color:var(--text);">Message sent! We will get back to you soon.</p>';
+        });
+
+        // Mouse-reactive specular for glass elements (if any were used, though not explicitly requested for this design)
+        document.querySelectorAll('.glass-filter,.glass-overlay,.glass-specular,.glass-content').forEach(el => {
+            const parent = el.closest('[class*="glass-"]');
+            if (!parent) return;
+        });
+        document.querySelectorAll('[class*="glass-"]:not(.glass-filter):not(.glass-overlay):not(.glass-specular):not(.glass-content)').forEach(el => {
+            el.addEventListener('mousemove', function(e) {
+                const r = this.getBoundingClientRect();
+                const x = e.clientX - r.left, y = e.clientY - r.top;
+                const spec = this.querySelector('.glass-specular');
+                if (spec) spec.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 30%, transparent 60%)`;
+            });
+            el.addEventListener('mouseleave', function() {
+                const spec = this.querySelector('.glass-specular');
+                if (spec) spec.style.background = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
